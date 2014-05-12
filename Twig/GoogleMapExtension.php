@@ -29,7 +29,7 @@ class GoogleMapExtension extends \Twig_Extension
      * @var array
      */
     protected $availablePlugins = array(
-        'infobox' => '/bundles/ivorygooglemap/js/infobox.js'
+        'infobox' => '/bundles/ivorygooglemap/js/infobox.min.js'
     );
 
     /**
