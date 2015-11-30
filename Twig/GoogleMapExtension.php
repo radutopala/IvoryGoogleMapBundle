@@ -13,7 +13,6 @@ namespace Ivory\GoogleMapBundle\Twig;
 
 use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Helper\MapHelper;
-use Twig_Function_Method;
 
 /**
  * Ivory google map twig extension.
@@ -55,7 +54,7 @@ class GoogleMapExtension extends \Twig_Extension
 
         $functions = array();
         foreach ($mapping as $twig => $local) {
-            $functions[$twig] = new Twig_Function_Method($this, $local, array('is_safe' => array('html')));
+            $functions[$twig] = new \Twig_SimpleFunction($twig, array($this, $local), array('is_safe' => array('html')));
         }
 
         return $functions;
