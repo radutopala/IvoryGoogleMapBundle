@@ -12,16 +12,6 @@ Require the bundle in your composer.json file:
 }
 ```
 
-If you want to use Geocoding stuff, you will need [Geocoder](http://github.com/willdurand/Geocoder):
-
-```
-{
-    "require": {
-        "willdurand/geocoder": "*"
-    }
-}
-```
-
 If you want to use Directions stuff, you will need [Buzz](http://github.com/kriswallsmith/Buzz):
 
 ```
@@ -74,22 +64,6 @@ Autoload the Ivory Google Map bundle & library namespaces:
 $loader->registerNamespaces(array(
     'Ivory\\GoogleMap'       => __DIR__.'/../vendor/ivory-google-map/src',
     'Ivory\\GoogleMapBundle' => __DIR__.'/../vendor/bundles',
-    // ...
-);
-```
-
-If you want to use Geocoding stuff, you will need [Geocoder](http://github.com/willdurand/Geocoder):
-
-```
-[geocoder]
-    git=http://github.com/willdurand/Geocoder.git
-```
-
-``` php
-// app/autoload.php
-
-$loader->registerNamespaces(array(
-    'Geocoder' => __DIR__.'/../vendor/geocoder/src',
     // ...
 );
 ```

@@ -14,7 +14,6 @@
 ### 1.1.0 (2012-03-13)
 
  * 2c13c5b - Remove prototyped services
- * 76b0a46 - [Geocoder][Request] Add language support
  * bbf251f - Allow to override all business classes & helpers
  * f82a0d4 - [Directions] Add language parameter to the request
  * a02d698 - [EventListener] Fix fake request listener registration

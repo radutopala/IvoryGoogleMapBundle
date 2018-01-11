@@ -49,10 +49,6 @@ ivory_google_map:
         class: "Ivory\\GoogleMapBundle\\Tests\\Fixtures\\Model\\Events\\EventManager"
     event:
         class: "Ivory\\GoogleMapBundle\\Tests\\Fixtures\\Model\\Events\\Event"
-    geocoder:
-        class: "Ivory\\GoogleMapBundle\\Tests\\Fixtures\\Model\\Services\\Geocoding\\Geocoder"
-    geocoder_request:
-        class: "Ivory\\GoogleMapBundle\\Tests\\Fixtures\\Model\\Services\\Geocoding\\GeocoderRequest"
     directions:
         class: "Ivory\\GoogleMapBundle\\Tests\\Fixtures\\Model\\Services\\Directions\\Directions"
     directions_request:

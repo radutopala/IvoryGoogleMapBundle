@@ -11,7 +11,7 @@ or as latitude/longitude coordinates. The Directions API can return multi-part d
 ## Request the directions service
 
 By default, the bundle doesn't need any configuration. Most of the service have a default configuration which allows
-you to use the given objects like they are. The ``ivory_google_map.geocoder`` service is. The configuration describes
+you to use the given objects like they are. The configuration describes
 below is this default configuration.
 
 ```

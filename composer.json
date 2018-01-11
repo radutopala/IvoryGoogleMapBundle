@@ -23,8 +23,7 @@
         "phpunit/phpunit": "3.7.*",
         "symfony/yaml": "2.*",
         "twig/twig": "1.*",
-        "kriswallsmith/buzz": "*",
-        "willdurand/geocoder": "*"
+        "kriswallsmith/buzz": "*"
     },
     "autoload": {
         "psr-0": { "Ivory\\GoogleMapBundle": "" }
