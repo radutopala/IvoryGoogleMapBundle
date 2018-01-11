@@ -1045,114 +1045,6 @@ abstract class AbstractIvoryGoogleMapExtensionTest extends \PHPUnit_Framework_Te
         );
     }
 
-    public function testFakeRequestListenerWithoutConfiguration()
-    {
-        $this->loadConfiguration($this->container, 'empty');
-        $this->container->compile();
-
-        $this->assertFalse($this->container->has('ivory_google_map.geocoder.event_listener.fake_request'));
-    }
-
-    public function testFakeRequestListenerWithConfiguration()
-    {
-        $this->loadConfiguration($this->container, 'fake_request');
-        $this->container->compile();
-
-        $fakeRequestListener = $this->container->get('ivory_google_map.geocoder.event_listener.fake_request');
-
-        $this->assertSame('222.222.222.222', $fakeRequestListener->getFakeIp());
-    }
-
-    public function testGeocoderRequestServiceWithoutConfiguration()
-    {
-        $this->loadConfiguration($this->container, 'empty');
-        $this->container->compile();
-
-        $request = $this->container->get('ivory_google_map.geocoder_request');
-
-        $this->assertInstanceOf('Ivory\GoogleMap\Services\Geocoding\GeocoderRequest', $request);
-        $this->assertFalse($request->hasAddress());
-        $this->assertFalse($request->hasCoordinate());
-        $this->assertFalse($request->hasBound());
-        $this->assertFalse($request->hasRegion());
-        $this->assertFalse($request->hasLanguage());
-        $this->assertFalse($request->hasSensor());
-    }
-
-    public function testGeocoderRequestServiceWithConfiguration()
-    {
-        $this->loadConfiguration($this->container, 'geocoder_request');
-        $this->container->compile();
-
-        $request = $this->container->get('ivory_google_map.geocoder_request');
-
-        $this->assertTrue($request->hasAddress());
-        $this->assertSame('address', $request->getAddress());
-
-        $this->assertTrue($request->hasCoordinate());
-        $this->assertSame(1.1, $request->getCoordinate()->getLatitude());
-        $this->assertSame(2.1, $request->getCoordinate()->getLongitude());
-        $this->assertTrue($request->getCoordinate()->isNoWrap());
-
-        $this->assertTrue($request->hasBound());
-        $this->assertSame(-3.2, $request->getBound()->getSouthWest()->getLatitude());
-        $this->assertSame(-1.4, $request->getBound()->getSouthWest()->getLongitude());
-        $this->assertTrue($request->getBound()->getSouthWest()->isNoWrap());
-        $this->assertSame(6.3, $request->getBound()->getNorthEast()->getLatitude());
-        $this->assertSame(2.3, $request->getBound()->getNorthEast()->getLongitude());
-        $this->assertTrue($request->getBound()->getNorthEast()->isNoWrap());
-
-        $this->assertTrue($request->hasRegion());
-        $this->assertSame('es', $request->getRegion());
-
-        $this->assertTrue($request->hasLanguage());
-        $this->assertSame('pl', $request->getLanguage());
-
-        $this->assertTrue($request->hasSensor());
-    }
-
-    public function testGeocoderRequestInstances()
-    {
-        $this->loadConfiguration($this->container, 'empty');
-        $this->container->compile();
-
-        $this->assertNotSame(
-            $this->container->get('ivory_google_map.geocoder_request'),
-            $this->container->get('ivory_google_map.geocoder_request')
-        );
-    }
-
-    public function testGeocoderServiceWithoutConfiguration()
-    {
-        $this->loadConfiguration($this->container, 'empty');
-        $this->container->compile();
-
-        $geocoder = $this->container->get('ivory_google_map.geocoder');
-
-        $this->assertInstanceOf('Ivory\GoogleMap\Services\Geocoding\Geocoder', $geocoder);
-    }
-
-    public function testGeocoderServiceWithConfiguration()
-    {
-        $this->loadConfiguration($this->container, 'geocoder');
-        $this->container->compile();
-
-        $geocoder = $this->container->get('ivory_google_map.geocoder');
-
-        $this->assertInstanceOf('Geocoder\Geocoder', $geocoder);
-    }
-
-    public function testGeocoderInstances()
-    {
-        $this->loadConfiguration($this->container, 'empty');
-        $this->container->compile();
-
-        $this->assertSame(
-            $this->container->get('ivory_google_map.geocoder'),
-            $this->container->get('ivory_google_map.geocoder')
-        );
-    }
-
     public function testDirectionsRequestServiceWithoutConfiguration()
     {
         $this->loadConfiguration($this->container, 'empty');
@@ -1555,16 +1447,6 @@ abstract class AbstractIvoryGoogleMapExtensionTest extends \PHPUnit_Framework_Te
         $this->assertInstanceOf(
             'Ivory\GoogleMapBundle\Tests\Fixtures\Model\Events\Event',
             $this->container->get('ivory_google_map.event')
-        );
-
-        $this->assertInstanceOf(
-            'Ivory\GoogleMapBundle\Tests\Fixtures\Model\Services\Geocoding\Geocoder',
-            $this->container->get('ivory_google_map.geocoder')
-        );
-
-        $this->assertInstanceOf(
-            'Ivory\GoogleMapBundle\Tests\Fixtures\Model\Services\Geocoding\GeocoderRequest',
-            $this->container->get('ivory_google_map.geocoder_request')
         );
 
         $this->assertInstanceOf(
