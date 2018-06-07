@@ -42,6 +42,9 @@ class MapBuilder extends AbstractBuilder
     /** @var string */
     protected $language;
 
+    /** @var string */
+    protected $key;
+
     /** @var array */
     protected $center;
 
@@ -239,6 +242,20 @@ class MapBuilder extends AbstractBuilder
     }
 
     /**
+     * Sets the API key.
+     *
+     * @param string $key The API key.
+     *
+     * @return \Ivory\GoogleMapBundle\Model\MapBuilder The builder.
+     */
+    public function setKey($key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
      * Gets the center.
      *
      * @return array The center.
@@ -399,6 +416,10 @@ class MapBuilder extends AbstractBuilder
 
         if ($this->language !== null) {
             $map->setLanguage($this->language);
+        }
+
+        if ($this->key !== null) {
+            $map->setKey($this->key);
         }
 
         if (!empty($this->center)) {
