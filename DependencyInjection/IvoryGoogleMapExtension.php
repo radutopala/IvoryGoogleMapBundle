@@ -178,6 +178,10 @@ class IvoryGoogleMapExtension extends Extension
             $builderDefinition->addMethodCall('setLanguage', array($config['map']['language']));
         }
 
+        if (isset($config['map']['api_key'])) {
+            $builderDefinition->addMethodCall('setKey', array($config['map']['api_key']));
+        }
+
         $mapOptions = array();
 
         if (isset($config['map']['type'])) {
